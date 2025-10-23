@@ -1,0 +1,18 @@
+environment: prod
+gateway:
+  host: 0.0.0.0
+  port: 8080
+  timeout_ms: 180
+  ab_salt: "llm-rr-prod"
+services:
+  candidate_url: http://candidate:8081
+  reranker_url: http://reranker-llm:8083
+llm:
+  provider: vllm
+  max_tokens: 96
+  temperature: 0.0
+  top_p: 1.0
+  use_kv_cache: true
+  budget_usd_per_1kreq: 0.35
+observability:
+  prometheus_port: 9100

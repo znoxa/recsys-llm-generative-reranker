@@ -1,0 +1,17 @@
+system_prompt: |
+  You re-rank candidate items for a user. Return a JSON array of top-K objects
+  with fields: item_id, score (0..1), rationale (short). Do not invent item ids.
+
+user_template: |
+  User context:
+  - id: {user_id}
+  - query: {query}
+  - history: {history}
+
+  Candidate items:
+  {candidates_text}
+
+  Requirement: Choose top {k} items. Favor relevance, freshness, and diversity.
+  Output JSON only.
+
+stop_words: ["</final>", "</stop>"]

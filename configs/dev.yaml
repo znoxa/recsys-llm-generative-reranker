@@ -1,0 +1,18 @@
+environment: dev
+gateway:
+  host: 0.0.0.0
+  port: 8080
+  timeout_ms: 300
+  ab_salt: "llm-rr-dev"
+services:
+  candidate_url: http://localhost:8081
+  reranker_url: http://localhost:8083
+llm:
+  provider: mock   # 'mock' | 'openai' | 'hf' | 'vllm'
+  max_tokens: 128
+  temperature: 0.0
+  top_p: 1.0
+  use_kv_cache: true
+  budget_usd_per_1kreq: 0.50
+observability:
+  prometheus_port: 9100

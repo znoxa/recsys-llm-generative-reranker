@@ -1,0 +1,3 @@
+{"user_id":"u1","query":"cozy mystery","positives":["i10","i11"],"negatives":["i1","i2","i3"]}
+{"user_id":"u2","query":"space opera","positives":["i20","i21"],"negatives":["i4","i5","i6"]}
+{"user_id":"u3","query":"productivity apps","positives":["i30"],"negatives":["i7","i8","i9"]}

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: reranker-llm }
+spec:
+  replicas: 3
+  selector: { matchLabels: { app: reranker-llm } }
+  template:
+    metadata: { labels: { app: reranker-llm } }
+    spec:
+      containers:
+      - name: reranker-llm
+        image: ghcr.io/example/recsys-llm/reranker-llm:latest
+        ports: [{ containerPort: 8083 }]
+---
+apiVersion: v1
+kind: Service
+metadata: { name: reranker-llm }
+spec:
+  selector: { app: reranker-llm }
+  ports: [{ port: 8083, targetPort: 8083 }]
